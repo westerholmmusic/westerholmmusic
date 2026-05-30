@@ -1,11 +1,288 @@
-<h1>.westerholm</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>.westerholm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<p>Official website of .westerholm – independent music artist.</p>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<p>Latest releases available on Apple Music, Spotify and all major streaming platforms.</p>
+    :root {
+      --bg: #121417;
+      --panel: #1B1F24;
+      --text: #EAE8E1;
+      --muted: #98A1AC;
+      --line: rgba(255,255,255,0.08);
+    }
 
-<p>
-<a href="https://music.apple.com/se/artist/westerholm/1871182747">Apple Music</a>
-</p>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1b222b 0%, #121417 40%);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-<p>All releases distributed via DistroKid.</p>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      opacity: 0.2;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero {
+      max-width: 800px;
+    }
+
+    .artist-name {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 999px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    section {
+      padding: 7rem 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .card small {
+      color: var(--muted);
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .cover {
+      aspect-ratio: 1 / 1;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(145deg, #222831, #111418);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.4s ease;
+    }
+
+    .cover:hover {
+      transform: scale(1.03);
+    }
+
+    .cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.25);
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      height: 100%;
+    }
+
+    .about {
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        min-height: 85vh;
+      }
+
+      section {
+        padding: 5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero container">
+    <h1 class="artist-name">.westerholm</h1>
+    <p class="tagline">
+      Electronic atmospheres for grown minds.
+      Music, visuals and selected works.
+    </p>
+
+    <div class="button-row">
+      <a href="#listen" class="btn">Listen</a>
+      <a href="#artwork" class="btn">Visual Works</a>
+    </div>
+  </div>
+</header>
+
+<section id="listen">
+  <div class="container">
+    <h2>Listen</h2>
+    <p class="section-intro">
+      Selected tracks, visuals and sonic fragments.
+    </p>
+
+    <div class="cards">
+      <a class="card" href="#">
+        <h3>YouTube</h3>
+        <small>Add your channel link here</small>
+      </a>
+
+      <a class="card" href="#">
+        <h3>Latest Release</h3>
+        <small>Feature a song or project</small>
+      </a>
+
+      <a class="card" href="#">
+        <h3>More</h3>
+        <small>Streaming & selected links</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="artwork">
+  <div class="container">
+    <h2>Visual Works</h2>
+    <p class="section-intro">
+      Album covers, moods and fragments.
+    </p>
+
+    <div class="art-grid">
+      <div class="cover">
+        <div class="placeholder">COVER 01</div>
+      </div>
+
+      <div class="cover">
+        <div class="placeholder">COVER 02</div>
+      </div>
+
+      <div class="cover">
+        <div class="placeholder">COVER 03</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>About</h2>
+
+    <p class="about">
+      .westerholm explores electronic atmospheres shaped by memory,
+      movement and late-night reflections.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © .westerholm
+</footer>
+
+</body>
+</html>
