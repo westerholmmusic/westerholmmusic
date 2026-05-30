@@ -417,20 +417,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
 
-  document.querySelectorAll(".cover img").forEach(img => {
-    img.style.cursor = "pointer";
+  ```javascript id="9f4jqh"
+document.querySelectorAll(".cover img").forEach(img => {
 
-    img.addEventListener("click", () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = img.src;
-    });
-  });
+  // Ingen lightbox på mobil
+  if (window.innerWidth <= 768) return;
 
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
+  img.style.cursor = "pointer";
+
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
   });
 
 });
+```
+
 </script>
 
 
