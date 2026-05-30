@@ -355,13 +355,19 @@ document.addEventListener("DOMContentLoaded", () => {
   padding: 2rem;
 }
 
+```css id="6m3z3t"
 .lightbox-content {
-  max-width: 90%;
-  max-height: 90vh;
+  width: auto;
+  height: auto;
+  max-width: min(92vw, 1200px);
+  max-height: 92dvh;
+  object-fit: contain;
   border-radius: 20px;
   box-shadow: 0 25px 60px rgba(0,0,0,.5);
   animation: zoomIn .25s ease;
 }
+```
+
 ```css id="eg3bqb"
 @media (max-width: 768px) {
   .lightbox-content {
