@@ -417,20 +417,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
 
-  ```javascript id="9f4jqh"
-document.querySelectorAll(".cover img").forEach(img => {
 
-  // Ingen lightbox på mobil
-  if (window.innerWidth <= 768) return;
+document.querySelectorAll(".cover img").forEach(img => {
 
   img.style.cursor = "pointer";
 
   img.addEventListener("click", () => {
+
+    // Mobil = ingen lightbox
+    if (window.innerWidth <= 768) return;
+
     lightbox.style.display = "flex";
     lightboxImg.src = img.src;
+
   });
 
 });
+```
+
 ```
 
 </script>
