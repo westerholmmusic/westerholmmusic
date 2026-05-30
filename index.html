@@ -333,6 +333,99 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 ```
+```html id="5k3pxt"
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(5, 8, 12, 0.92);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.5);
+  animation: zoomIn .25s ease;
+}
+
+.close {
+  position: absolute;
+  top: 24px;
+  right: 36px;
+  font-size: 2.5rem;
+  color: rgba(255,255,255,.75);
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.close:hover {
+  color: white;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // RANDOM COVER ORDER
+  const grid = document.querySelector(".art-grid");
+
+  if (grid) {
+    const covers = Array.from(grid.children);
+
+    for (let i = covers.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [covers[i], covers[j]] = [covers[j], covers[i]];
+    }
+
+    covers.forEach(cover => {
+      grid.appendChild(cover);
+    });
+  }
+
+  // LIGHTBOX
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".cover img").forEach(img => {
+    img.style.cursor = "pointer";
+
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+});
+</script>
+```
 
 </body>
 </html>
